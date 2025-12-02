@@ -133,8 +133,8 @@ while True:
                 print("No hay estudiantes registrados.")
             else:
                 print("\nLista de estudiantes:")
-                for e in estudiantes:
-                    print(f" - {e}")
+                for eestudiante in estudiantes:
+                    print(f"Nombre: {estudiante.nombre} Apellido {estudiante.apellido} (ID: {estudiante.identificacion})")
         case "7":
             if not asignaturas:
                 print("No hay asignaturas creadas.")
