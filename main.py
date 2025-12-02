@@ -113,7 +113,21 @@ while True:
             except ValueError:
                 print("Entrada inválida. Por favor, ingrese un número.")
         case "5":
-            break  # Código para ver promedio y estado de un estudiante
+            idEstudiante = input("Identificación del estudiante: ").strip()
+            estudiante = buscarEstudiante(idEstudiante)
+            if not estudiante:
+                print("Estudiante no encontrado.")
+                continue
+            codigoAsignatura = input("Código de la asignatura: ").strip()
+            promedio = estudiante.obtenerPromedio(codigoAsignatura)
+            if promedio is None:
+                print("El estudiante no tiene notas en esa asignatura.")
+            else:
+                estado = estudiante.estado(codigoAsignatura)
+                print(f"\nEstudiante: {estudiante}")
+                print(f"Asignatura: {codigoAsignatura}")
+                print(f"Promedio: {promedio:.2f}")
+                print(f"Estado: {estado}")
         case "6":
             break  # Código para listar estudiantes
         case "7":
