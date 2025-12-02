@@ -93,7 +93,25 @@ while True:
             print(f"Profesor asignado: {profesor.nombre} {profesor.apellido}")
             print(f"Estudiantes inscritos automáticamente: {len(estudiantes)}")
         case "4":
-            break  # Código para ingresar notas
+            codigoAsignatura = input("Código de la asignatura: ").strip()
+            asignatura = buscarAsignatura(codigoAsignatura)
+            if not asignatura or not asignatura.profesor:
+                print("Asignatura no existe o no tiene profesor asignado.")
+                continue
+            idEstudiante = input("Identificación del estudiante: ").strip()
+            estudiante = buscarEstudiante(idEstudiante)
+            if not estudiante or estudiante not in asignatura.estudiantes:
+                print("Estudiante no encontrado o no inscrito en esta asignatura.")
+                continue
+            try:
+                nota = float(input("Ingrese la nota (0-5): "))
+                if 0 <= nota <= 5:
+                    estudiante.agregarNota(codigoAsignatura, nota)
+                    print("Nota registrada con éxito.")
+                else:
+                    print("La nota debe estar entre 0 y 5.")
+            except ValueError:
+                print("Entrada inválida. Por favor, ingrese un número.")
         case "5":
             break  # Código para ver promedio y estado de un estudiante
         case "6":
