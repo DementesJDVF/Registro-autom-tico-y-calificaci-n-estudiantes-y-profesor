@@ -59,7 +59,17 @@ while True:
                 print(f"{nuevoEstudiante.nombre} registrado e inscrito en {len(asignaturas)} asignaturas.")
             print(f"\n¡{creados} de {n} estudiante(s) registrado(s) con éxito!")
         case "2":
-            break  # Código para registrar profesores
+            nombre = input("Nombre del profesor: ").strip()
+            apellido = input("Apellido: ").strip()
+            identificacion = input("Identificación: ").strip()
+            if not nombre or not apellido or not identificacion:
+                print("Datos incompletos.")
+                continue
+            if buscarProfesor(identificacion):
+                print("Ya existe un profesor con esa identificación.")
+            else:
+                profesores.append(Profesor(nombre, apellido, identificacion))
+                print("Profesor registrado con éxito.")
         case "3":
             break  # Código para crear asignaturas
         case "4":
@@ -72,7 +82,5 @@ while True:
             break  # Código para listar asignaturas
         case "0":
             break  # Salir del programa
-        
-                    
 
         
