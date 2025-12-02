@@ -143,8 +143,7 @@ while True:
                 for asignatura in asignaturas:
                     print(f"Nombre: {asignatura} codigo: {asignatura.codigo} Profesor: {asignatura.profesor.nombre} {asignatura.profesor.apellido}")
         case "0":
-            break  # Salir del programa
-
-
-
-        
+            print("\nHasta pronto!")
+            break
+        case _:
+            print("Opción no válida.")
