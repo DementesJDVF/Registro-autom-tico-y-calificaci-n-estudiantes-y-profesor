@@ -26,7 +26,7 @@ def buscarAsignatura(codigo):
 
 while True:
     print("\nMenú Principal")
-    print("\n1. Registrar Estudiantes\n2. Registrar Profesor\n3. Crear asignatur\n4. Ingresar notas\n5. Ver promedio y estado de un estudiante\n6. Lista estudiantes\n7. Lista asignaturas\n0. Salir")
+    print("\n1. Registrar Estudiantes\n2. Registrar Profesor\n3. Crear asignatura\n4. Ingresar notas\n5. Ver promedio y estado de un estudiante\n6. Lista estudiantes\n7. Lista asignaturas\n0. Salir")
     opcion = input("\nSeleccione una opción: ").strip()
 
     match opcion:
@@ -71,7 +71,27 @@ while True:
                 profesores.append(Profesor(nombre, apellido, identificacion))
                 print("Profesor registrado con éxito.")
         case "3":
-            break  # Código para crear asignaturas
+            nombre = input("Nombre de la asignatura: ").strip()
+            codigo = input("Código de la asignatura: ").strip()
+            if not nombre or not codigo:
+                print("Nombre o código inválidos.")
+                continue
+            if buscarAsignatura(codigo):
+                print("Ya existe una asignatura con ese código.")
+                continue
+            idProfesor = input("Identificación del profesor que la impartirá: ").strip()
+            profesor = buscarProfesor(idProfesor)
+            if not profesor:
+                print("Profesor no encontrado. La asignatura no se creará.")
+                continue
+            nuevaAsignatura = Asignatura(nombre, codigo, profesor=profesor)
+            profesor.agregarAsignatura(codigo)
+            asignaturas.append(nuevaAsignatura)
+            for estudiante in estudiantes:
+                nuevaAsignatura.inscribirEstudiante(estudiante)
+            print(f"Asignatura '{nombre}' creada con éxito.")
+            print(f"Profesor asignado: {profesor.nombre} {profesor.apellido}")
+            print(f"Estudiantes inscritos automáticamente: {len(estudiantes)}")
         case "4":
             break  # Código para ingresar notas
         case "5":
