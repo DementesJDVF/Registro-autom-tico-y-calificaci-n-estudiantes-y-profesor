@@ -129,7 +129,12 @@ while True:
                 print(f"Promedio: {promedio:.2f}")
                 print(f"Estado: {estado}")
         case "6":
-            break  # Código para listar estudiantes
+            if not estudiantes:
+                print("No hay estudiantes registrados.")
+            else:
+                print("\nLista de estudiantes:")
+                for e in estudiantes:
+                    print(f" - {e}")
         case "7":
             break  # Código para listar asignaturas
         case "0":
