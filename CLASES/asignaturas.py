@@ -5,7 +5,7 @@ class Asignatura:
         self.profesor = profesor
         self.estudiantes = []  # lista de objetos Estudiante
 
-    def inscribir_estudiante(self, estudiante):
+    def inscribirEstudiante(self, estudiante):
         if estudiante not in self.estudiantes:
             self.estudiantes.append(estudiante)
 
