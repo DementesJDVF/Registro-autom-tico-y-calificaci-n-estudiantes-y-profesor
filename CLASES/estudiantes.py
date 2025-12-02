@@ -14,3 +14,8 @@ class Estudiante(Persona):
             return sum(self.notas[codigo_asignatura]) / len(self.notas[codigo_asignatura])
         return None
 
+    def estado(self, codigo_asignatura, nota_minima=60):
+        prom = self.obtener_promedio(codigo_asignatura)
+        if prom is None:
+            return "Sin notas"
+        return "Aprobado" if prom >= nota_minima else "Reprobado"
