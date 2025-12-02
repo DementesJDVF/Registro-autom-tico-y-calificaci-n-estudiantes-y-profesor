@@ -4,18 +4,18 @@ class Estudiante(Persona):
         super().__init__(nombre, apellido, identificacion)
         self.notas = {}  # {codigo_asignatura: [notas]}
 
-    def agregar_nota(self, codigo_asignatura, nota):
-        if codigo_asignatura not in self.notas:
-            self.notas[codigo_asignatura] = []
-        self.notas[codigo_asignatura].append(nota)
+    def agregarNota(self, codigoAsignatura, nota):
+        if codigoAsignatura not in self.notas:
+            self.notas[codigoAsignatura] = []
+        self.notas[codigoAsignatura].append(nota)
 
-    def obtener_promedio(self, codigo_asignatura):
-        if codigo_asignatura in self.notas and self.notas[codigo_asignatura]:
-            return sum(self.notas[codigo_asignatura]) / len(self.notas[codigo_asignatura])
+    def obtenerPromedio(self, codigoAsignatura):
+        if codigoAsignatura in self.notas and self.notas[codigoAsignatura]:
+            return sum(self.notas[codigoAsignatura]) / len(self.notas[codigoAsignatura])
         return None
 
-    def estado(self, codigo_asignatura, nota_minima=60):
-        prom = self.obtener_promedio(codigo_asignatura)
+    def estado(self, codigoAsignatura, notaMinima=3):
+        prom = self.obtenerPromedio(codigoAsignatura)
         if prom is None:
             return "Sin notas"
-        return "Aprobado" if prom >= nota_minima else "Reprobado"
+        return "Aprobado" if prom >= notaMinima else "Reprobado"
