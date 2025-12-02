@@ -136,8 +136,15 @@ while True:
                 for e in estudiantes:
                     print(f" - {e}")
         case "7":
-            break  # Código para listar asignaturas
+            if not asignaturas:
+                print("No hay asignaturas creadas.")
+            else:
+                print("\nLista de asignaturas:")
+                for asignatura in asignaturas:
+                    print(f"Nombre: {asignatura} codigo: {asignatura.codigo} Profesor: {asignatura.profesor.nombre} {asignatura.profesor.apellido}")
         case "0":
             break  # Salir del programa
+
+
 
         
