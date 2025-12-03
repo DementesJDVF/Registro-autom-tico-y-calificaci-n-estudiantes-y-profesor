@@ -7,9 +7,7 @@ estudiantes = []
 profesores = []
 asignaturas = []
 
-
 # === FUNCIONES DE BÚSQUEDA ===
-
 def buscarEstudiante(identificacion):
     #"""Busca un estudiante por su identificación y lo devuelve si existe."""
     for e in estudiantes:
@@ -31,22 +29,13 @@ def buscarAsignatura(codigo):
             return a
     return None
 
-
 # === MENÚ PRINCIPAL ===
 while True:
     print("\nMenu Principal")
-    print("\n1. Registrar Estudiantes")
-    print("2. Registrar Profesor")
-    print("3. Crear asignatura")
-    print("4. Ingresar notas")
-    print("5. Ver promedio y estado de un estudiante")
-    print("6. Lista estudiantes")
-    print("7. Lista asignaturas")
-    print("0. Salir")
+    print("\n1. Registrar Estudiantes\n2. Registrar Profesor\n3. Crear asignatura\n4. Ingresar notas\n5. Ver promedio y estado de un estudiante\n6. Lista estudiantes\n7. Lista asignaturas\n0. Salir")
     opcion = input("\nSeleccione una opcion: ").strip()
 
     match opcion:
-
         # === CASO 1: REGISTRAR N ESTUDIANTES ===
         case "1":
             try:
